@@ -456,7 +456,8 @@ case $host_os in
         ;;
     darwin*)
         SYS="MACOSX"
-        CFLAGS="$CFLAGS -falign-loops=16"
+        # The new clang 5.1 doesn't like this
+        # CFLAGS="$CFLAGS -falign-loops=16"
         libm="-lm"
         if [ "$pic" = "no" ]; then
             cc_check "" -mdynamic-no-pic && CFLAGS="$CFLAGS -mdynamic-no-pic"
